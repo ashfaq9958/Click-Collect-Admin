@@ -22,7 +22,7 @@ const CardComponent: React.FC<CardProps> = ({
   ratePercentage,
 }) => {
   return (
-    <div className="mt-8 border rounded-[4px] shadow-sm bg-white">
+    <div className="mt-9 border rounded-[4px] shadow-sm bg-white">
       <CardHeader className="space-y-2">
         <div
           className="w-[70px] h-[70px] flex items-center justify-center rounded-[4px]"

@@ -67,7 +67,7 @@ export function AppSidebar() {
   return (
     <Sidebar className="w-64 h-screen bg-gray-900 text-gray-100 shadow-lg flex flex-col justify-between">
       {/* Sidebar Header */}
-      <SidebarHeader className="p-4 text-lg font-bold text-center border-b border-gray-700">
+      <SidebarHeader className="p-5 text-lg font-bold text-center border-b border-gray-700">
         Click & Collect
       </SidebarHeader>
 

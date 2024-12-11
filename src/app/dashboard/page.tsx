@@ -1,28 +1,37 @@
-import React from "react";
+"use client"; // Ensure this is at the top
+
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; // Updated import for App Router
 import Card from "../components/Card/Card";
 import {
   ShoppingCart,
   ShoppingBag,
-  MessageCircle,
-  UserPlus,
   User,
   CircleDollarSign,
   Shirt,
   Scroll,
+  Home,
+  ChevronsRight,
 } from "lucide-react";
 
 const Dashboard = () => {
+  const [currentPath, setCurrentPath] = useState(""); // For client-side path
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router) return; // Ensure router exists
+    setCurrentPath(window.location.pathname); // Fallback for path
+  }, [router]);
 
   interface CardInfo {
     backgroundColor: string;
-    icon: React.ReactNode; 
+    icon: React.ReactNode;
     iconColor: string;
     title: string;
     figure: string;
     rateTitle: string;
     ratePercentage: string;
   }
-
 
   const cardData: CardInfo[] = [
     {
@@ -61,7 +70,6 @@ const Dashboard = () => {
       rateTitle: "Increased by",
       ratePercentage: "+2.58%",
     },
-
     {
       backgroundColor: "#dde3f4",
       icon: <Scroll size={18} color="white" />,
@@ -71,7 +79,6 @@ const Dashboard = () => {
       rateTitle: "Decreased by",
       ratePercentage: "-14.9%",
     },
-
     {
       backgroundColor: "#dff3e1",
       icon: <Shirt size={18} color="white" />,
@@ -84,19 +91,29 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 justify-between items-center gap-x-3 px-6 grid-cols-1">
-      {cardData.map((data, index) => (
-        <Card
-          key={index}
-          backgroundColor={data.backgroundColor}
-          icon={data.icon}
-          iconColor={data.iconColor}
-          title={data.title}
-          figure={data.figure}
-          rateTitle={data.rateTitle}
-          ratePercentage={data.ratePercentage}
-        />
-      ))}
+    <div className="p-6">
+      {/* Display Current Path */}
+      <div className="mt-2 -mb-3 flex items-center gap-2 text-gray-700 text-lg font-medium">
+        <span className="text-sm">Home</span>
+        <ChevronsRight size={12} className="text-gray-400" />
+        <span className="text-sm text-blue-600">Dashboard</span>
+      </div>
+
+      {/* Card Grid */}
+      <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 gap-x-3 grid-cols-1">
+        {cardData.map((data, index) => (
+          <Card
+            key={index}
+            backgroundColor={data.backgroundColor}
+            icon={data.icon}
+            iconColor={data.iconColor}
+            title={data.title}
+            figure={data.figure}
+            rateTitle={data.rateTitle}
+            ratePercentage={data.ratePercentage}
+          />
+        ))}
+      </div>
     </div>
   );
 };

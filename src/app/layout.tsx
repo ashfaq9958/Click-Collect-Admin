@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./components/Navbar/Navbar";
+import { Head } from "next/document";
 
 export const metadata: Metadata = {
   title: "Click&Collect App",
