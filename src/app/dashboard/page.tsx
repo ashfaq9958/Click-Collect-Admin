@@ -1,8 +1,14 @@
 "use client"; // Ensure this is at the top
 
 import React, { useEffect, useState } from "react";
+import { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation"; // Updated import for App Router
 import Card from "../components/Card/Card";
+import mobile from "../../assets/technology.png";
+import headphone from "../../assets/headphone.png";
+import stopwatch from "../../assets/stopwatch.png";
+import Camera from "../../assets/camera.png";
+import shoes from "../../assets/baby-shoes.png"
 import {
   ShoppingCart,
   ShoppingBag,
@@ -13,6 +19,7 @@ import {
   Home,
   ChevronsRight,
 } from "lucide-react";
+import RecentOrder from "../components/RecentOrderCard/RecentOrder";
 
 const Dashboard = () => {
   const [currentPath, setCurrentPath] = useState(""); // For client-side path
@@ -32,7 +39,13 @@ const Dashboard = () => {
     rateTitle: string;
     ratePercentage: string;
   }
-
+  interface RecentOrderdata {
+    backgroundColor: string;
+    icon: StaticImageData; 
+    productName: string;
+    categories: string;
+    price: string;
+  }
   const cardData: CardInfo[] = [
     {
       backgroundColor: "#dee0fb",
@@ -90,16 +103,54 @@ const Dashboard = () => {
     },
   ];
 
+  const recentOrderData: RecentOrderdata[] = [
+    {
+      backgroundColor: "#d2cec9",
+      icon: mobile,
+      productName: "Smart Phone",
+      categories: "Electronics",
+      price: "199.99",
+    },
+    {
+      backgroundColor: "#d3b1bd",
+      icon: shoes,
+      productName: "Kids Shoes",
+      categories: "Footwear",
+      price: "149.29",
+    },
+    {
+      backgroundColor: "#e2edfd",
+      icon: Camera,
+      productName: "Canon Camera",
+      categories: "Electronics",
+      price: "1,699",
+    },
+    {
+      backgroundColor: "#f9dcdf",
+      icon: headphone,
+      productName: "Red Headphone",
+      categories: "Electronics",
+      price: "79.49",
+    },
+    {
+      backgroundColor: "#e2edfd",
+      icon: stopwatch,
+      productName: "Stop watch",
+      categories: "Electronics",
+      price: "49.29",
+    },
+  
+   
+  ];
+
   return (
     <div className="p-6">
-      {/* Display Current Path */}
       <div className="mt-2 -mb-3 flex items-center gap-2 text-gray-700 text-lg font-medium">
         <span className="text-sm">Home</span>
         <ChevronsRight size={12} className="text-gray-400" />
         <span className="text-sm text-blue-600">Dashboard</span>
       </div>
 
-      {/* Card Grid */}
       <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 gap-x-3 grid-cols-1">
         {cardData.map((data, index) => (
           <Card
@@ -114,6 +165,8 @@ const Dashboard = () => {
           />
         ))}
       </div>
+
+      <RecentOrder orders={recentOrderData} />
     </div>
   );
 };
