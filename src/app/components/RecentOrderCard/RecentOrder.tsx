@@ -16,10 +16,10 @@ interface RecentOrderProps {
 
 const RecentOrder: React.FC<RecentOrderProps> = ({ orders }) => {
   return (
-    <div className="mt-9 rounded-[4px] shadow-sm bg-white w-96">
+    <div className="rounded-[4px] shadow-sm bg-white w-[30%]">
       {/* Card Header */}
       <CardHeader className="py-5 px-6 rounded-t-lg">
-        <CardTitle className="text-base font-semibold">Recent Orders</CardTitle>
+        <CardTitle className="text-base font-semibold text-gray-900  tracking-wide">Recent Orders</CardTitle>
       </CardHeader>
       <hr />
       {/* Order List */}

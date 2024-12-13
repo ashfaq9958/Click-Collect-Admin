@@ -1,14 +1,13 @@
-"use client"; // Ensure this is at the top
-
+"use client";
 import React, { useEffect, useState } from "react";
 import { StaticImageData } from "next/image";
-import { useRouter } from "next/navigation"; // Updated import for App Router
+import { useRouter } from "next/navigation";
 import Card from "../components/Card/Card";
 import mobile from "../../assets/technology.png";
 import headphone from "../../assets/headphone.png";
 import stopwatch from "../../assets/stopwatch.png";
 import Camera from "../../assets/camera.png";
-import shoes from "../../assets/baby-shoes.png"
+import shoes from "../../assets/baby-shoes.png";
 import {
   ShoppingCart,
   ShoppingBag,
@@ -16,13 +15,13 @@ import {
   CircleDollarSign,
   Shirt,
   Scroll,
-  Home,
   ChevronsRight,
 } from "lucide-react";
 import RecentOrder from "../components/RecentOrderCard/RecentOrder";
+import SalesChart from "../components/BarChart/SalesChart";
 
 const Dashboard = () => {
-  const [currentPath, setCurrentPath] = useState(""); // For client-side path
+  const [currentPath, setCurrentPath] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const Dashboard = () => {
   }
   interface RecentOrderdata {
     backgroundColor: string;
-    icon: StaticImageData; 
+    icon: StaticImageData;
     productName: string;
     categories: string;
     price: string;
@@ -139,8 +138,7 @@ const Dashboard = () => {
       categories: "Electronics",
       price: "49.29",
     },
-  
-   
+    
   ];
 
   return (
@@ -165,8 +163,10 @@ const Dashboard = () => {
           />
         ))}
       </div>
-
-      <RecentOrder orders={recentOrderData} />
+      <div className="flex gap-4 mt-9">
+        <RecentOrder orders={recentOrderData} />
+        <SalesChart />
+      </div>
     </div>
   );
 };
