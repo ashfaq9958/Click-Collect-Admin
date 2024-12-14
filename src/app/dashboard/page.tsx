@@ -8,6 +8,13 @@ import headphone from "../../assets/headphone.png";
 import stopwatch from "../../assets/stopwatch.png";
 import Camera from "../../assets/camera.png";
 import shoes from "../../assets/baby-shoes.png";
+import m1 from "../../assets/man.png";
+import m2 from "../../assets/man2.png"
+import w1 from "../../assets/woman.png";
+import w2 from "../../assets/woman2.png"
+import w3 from "../../assets/woman3.png"
+
+
 import {
   ShoppingCart,
   ShoppingBag,
@@ -44,6 +51,13 @@ const Dashboard = () => {
     productName: string;
     categories: string;
     price: string;
+  }
+
+  interface TopCustomer {
+    name: string;
+    icon: StaticImageData;
+    item: string | number;
+    cost: string | number;
   }
   const cardData: CardInfo[] = [
     {
@@ -138,7 +152,39 @@ const Dashboard = () => {
       categories: "Electronics",
       price: "49.29",
     },
-    
+  ];
+
+  const cutomerData: TopCustomer[] = [
+    {
+      name: "Emma Wilson",
+      icon: w1,
+      item: 18,
+      cost: "1,835",
+    },
+    {
+      name: "Robert Lewis",
+      icon: m1,
+      item: 18,
+      cost: "2,415",
+    },
+    {
+      name: "Angelina Hose",
+      icon: w2,
+      item: 21,
+      cost: "2,341",
+    },
+    {
+      name: "Hugh Jackma",
+      icon: m2,
+      item: 20,
+      cost: "3,631",
+    },
+    {
+      name: "Samantha Sam",
+      icon: w3,
+      item: 21,
+      cost: "2,624",
+    },
   ];
 
   return (
@@ -166,6 +212,7 @@ const Dashboard = () => {
       <div className="flex gap-4 mt-9">
         <RecentOrder orders={recentOrderData} />
         <SalesChart />
+        <RecentOrder customers={cutomerData} />
       </div>
     </div>
   );

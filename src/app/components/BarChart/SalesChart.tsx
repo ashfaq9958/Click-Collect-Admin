@@ -1,14 +1,6 @@
 import React from "react";
-import { TrendingUp } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -62,14 +54,15 @@ const SalesChart = () => {
         <hr className="!mt-4" />
       </CardHeader>
 
-      <CardContent className="px-6">
-        <ChartContainer config={chartConfig}>
+      <CardContent className="px-6 ">
+        <ChartContainer config={chartConfig} style={{ height: "325px" }}>
           <BarChart data={chartData} barGap={8} barSize={20}>
             <CartesianGrid
               strokeDasharray="3 3"
               vertical={false}
               stroke="#e5e7eb"
             />
+
             <XAxis
               dataKey="month"
               tickLine={false}
@@ -79,10 +72,10 @@ const SalesChart = () => {
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
-              cursor={{ fill: "rgba(0, 0, 0, 0.05)" }} // Slightly darker for visibility
+              cursor={{ fill: "rgba(0, 0, 0, 0.05)" }}
               content={
                 <ChartTooltipContent
-                  indicator="line" // Use "line" or "dashed" for a professional look
+                  indicator="line"
                   className="bg-white text-gray-700 shadow-lg rounded-lg border border-gray-200 px-4 py-3"
                 />
               }
