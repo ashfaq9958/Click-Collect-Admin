@@ -120,7 +120,7 @@ const Dashboard = () => {
   const recentOrderData: RecentOrderdata[] = [
     {
       backgroundColor: "#d2cec9",
-      icon: cell,
+      icon: mobile,
       productName: "Smart Phone",
       categories: "Electronics",
       price: "199.99",
@@ -189,14 +189,14 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="p-6">
+    <div className="p-6 font-roboto">
       <div className="mt-2 -mb-3 flex items-center gap-2 text-gray-700 text-lg font-medium">
         <span className="text-sm">Home</span>
         <ChevronsRight size={12} className="text-gray-400" />
         <span className="text-sm text-blue-600">Dashboard</span>
       </div>
 
-      <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 gap-x-3 grid-cols-1">
+      <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 gap-x-3 grid-cols-1 font-roboto">
         {cardData.map((data, index) => (
           <Card
             key={index}
@@ -210,7 +210,7 @@ const Dashboard = () => {
           />
         ))}
       </div>
-      <div className="flex gap-4 mt-9">
+      <div className="flex gap-4 mt-9 font-roboto">
         <RecentOrder orders={recentOrderData} />
         <SalesChart />
         <RecentOrder customers={cutomerData} />

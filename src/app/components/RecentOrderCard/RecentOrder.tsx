@@ -28,7 +28,7 @@ const RecentOrder: React.FC<RecentOrderProps> = ({ orders, customers }) => {
   return (
     <div className="rounded-[4px] shadow-sm bg-white w-[30%]">
       <CardHeader className="py-5 px-6 rounded-t-lg">
-        <CardTitle className="text-base font-semibold text-gray-900 tracking-wide">
+        <CardTitle className="text-base font-semibold text-gray-900 tracking-wide font-roboto">
           {orders ? "Recent Orders" : "Top Customers"}
         </CardTitle>
       </CardHeader>
@@ -54,15 +54,15 @@ const RecentOrder: React.FC<RecentOrderProps> = ({ orders, customers }) => {
                     />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">
+                    <p className="font-semibold text-gray-800 font-roboto">
                       {order.productName}
                     </p>
-                    <p className="text-[12px] text-gray-500">
+                    <p className="text-[12px] text-gray-500 font-roboto">
                       {order.categories}
                     </p>
                   </div>
                 </div>
-                <div className="text-sm">${order.price}</div>
+                <div className="text-sm font-roboto">${order.price}</div>
               </CardDescription>
             ))
           : customers?.map((customer, i) => (
@@ -81,16 +81,16 @@ const RecentOrder: React.FC<RecentOrderProps> = ({ orders, customers }) => {
                     />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800 flex items-center gap-1">
+                    <p className="font-semibold text-gray-800 flex items-center gap-1 font-roboto">
                       {customer.name}
                     </p>
-                    <p className="text-[12px] text-gray-500 flex items-center gap-1">
+                    <p className="text-[12px] text-gray-500 flex items-center gap-1 font-roboto">
                       {customer.item} Purchases
                       <BadgeCheck size={16} color="white" fill="#3d7ede" />
                     </p>
                   </div>
                 </div>
-                <div className="text-sm">${customer.cost}</div>
+                <div className="text-sm font-roboto">${customer.cost}</div>
               </CardDescription>
             ))}
       </div>
