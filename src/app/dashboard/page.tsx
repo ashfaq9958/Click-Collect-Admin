@@ -4,6 +4,7 @@ import { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
 import Card from "../components/Card/Card";
 import mobile from "../../assets/technology.png";
+import cell from "../../assets/cell-phone.png"
 import headphone from "../../assets/headphone.png";
 import stopwatch from "../../assets/stopwatch.png";
 import Camera from "../../assets/camera.png";
@@ -119,7 +120,7 @@ const Dashboard = () => {
   const recentOrderData: RecentOrderdata[] = [
     {
       backgroundColor: "#d2cec9",
-      icon: mobile,
+      icon: cell,
       productName: "Smart Phone",
       categories: "Electronics",
       price: "199.99",
